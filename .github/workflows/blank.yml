@@ -49,6 +49,7 @@ jobs:
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${IPOPT_DIR}/lib/pkgconfig
         export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${IPOPT_DIR}/lib
         export PATH=${PATH}:${IPOPT_DIR}/lib
+        ln -s ${IPOPT_DIR}/lib/libcoinmumps.so ${IPOPT_DIR}/lib/libcoinmumps.so.2
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
         mkdir build
@@ -117,7 +118,6 @@ jobs:
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${IPOPT_DIR}/lib/pkgconfig
         export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${IPOPT_DIR}/lib
         export PATH=${PATH}:${IPOPT_DIR}/lib
-        ln -s ${IPOPT_DIR}/lib/libcoinmumps.so ${IPOPT_DIR}/lib/libcoinmumps.so.2
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
         mkdir build
