@@ -53,7 +53,7 @@ jobs:
         cd robotology-superbuild
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
@@ -85,7 +85,7 @@ jobs:
         cd robotology-superbuild
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
@@ -121,7 +121,7 @@ jobs:
         cd robotology-superbuild
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
@@ -145,7 +145,7 @@ jobs:
         cd robotology-superbuild
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON  -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
