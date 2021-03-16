@@ -30,7 +30,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
-        mamba install cmake compilers make ninja pkg-config ace asio boost eigen gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
+        mamba install cmake compilers make ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
         
     - name: Coinbrew
       shell: bash -l {0}
@@ -57,7 +57,7 @@ jobs:
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
-        cmake --build . --target TimeVaryingDCMPlanner
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -R TimeVaryingDCMPlannerUnitTests
 
   # This install mumps, ipopt via conda-forge and casadi, bipedal-locomotion-framework via robotology-superbuild
@@ -76,7 +76,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
-        mamba install cmake compilers make ninja pkg-config ace asio boost eigen gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
+        mamba install cmake compilers make ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
         
     - name: Install blf via robotology-superbuild
       shell: bash -l {0}
@@ -89,7 +89,7 @@ jobs:
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
-        cmake --build . --target TimeVaryingDCMPlanner
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -R TimeVaryingDCMPlannerUnitTests
         
   # This install mumps, ipopt via coindbrew and casadi, bipedal-locomotion-framework via robotology-superbuild
@@ -117,6 +117,7 @@ jobs:
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${IPOPT_DIR}/lib/pkgconfig
         export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${IPOPT_DIR}/lib
         export PATH=${PATH}:${IPOPT_DIR}/lib
+        ln -s ${IPOPT_DIR}/lib/libcoinmumps.so ${IPOPT_DIR}/lib/libcoinmumps.so.2
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
         mkdir build
@@ -125,7 +126,7 @@ jobs:
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
-        cmake --build . --target TimeVaryingDCMPlanner
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -R TimeVaryingDCMPlannerUnitTests
         
         
@@ -149,5 +150,5 @@ jobs:
         cmake --build . --target bipedal-locomotion-framework
         cd src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
-        cmake --build . --target TimeVaryingDCMPlanner
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -R TimeVaryingDCMPlannerUnitTests
