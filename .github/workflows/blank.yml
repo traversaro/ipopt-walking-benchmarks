@@ -61,7 +61,7 @@ jobs:
         ctest -R TimeVaryingDCMPlannerUnitTests
 
   # This install mumps, ipopt via conda-forge and casadi, bipedal-locomotion-framework via robotology-superbuild
-  build-conda-full:
+  build-conda-pure:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
@@ -130,7 +130,7 @@ jobs:
         
         
   # This install mumps, ipopt via apt and casadi, bipedal-locomotion-framework via robotology-superbuild
-  build-apt-full:
+  build-apt-pure:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
     
