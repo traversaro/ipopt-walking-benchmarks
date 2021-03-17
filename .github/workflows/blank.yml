@@ -158,7 +158,10 @@ jobs:
         export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${IPOPT_DIR}/lib
         export PATH=${PATH}:${IPOPT_DIR}/lib
         # Conda-specific step
-        export LDFLAGS="$LDFLAGS -Wl,-rpath,${IPOPT_DIR}/lib -Wl,-rpath-link,${IPOPT_DIR}/lib"
+        echo $LDFLAGS
+        export LDFLAGS="$LDFLAGS -Wl,-rpath,${IPOPT_DIR}/lib" 
+        export LDFLAGS="$LDFLAGS -Wl,-rpath-link,${IPOPT_DIR}/lib"
+        echo $LDFLAGS
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
         mkdir build
