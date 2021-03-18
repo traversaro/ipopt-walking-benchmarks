@@ -58,7 +58,9 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
-        cd src/bipedal-locomotion-framework
+        cd ../src/bipedal-locomotion-framework
+        git checkout debug/241
+        cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
@@ -90,7 +92,9 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
-        cd src/bipedal-locomotion-framework
+        cd ../src/bipedal-locomotion-framework
+        git checkout debug/241
+        cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
@@ -118,6 +122,7 @@ jobs:
       run: |
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
+        git checkout debug\241
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON ..
@@ -166,7 +171,9 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
-        cd src/bipedal-locomotion-framework
+        cd ../src/bipedal-locomotion-framework
+        git checkout debug/241
+        cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
@@ -198,7 +205,9 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON  -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
-        cd src/bipedal-locomotion-framework
+        cd ../src/bipedal-locomotion-framework
+        git checkout debug/241
+        cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
