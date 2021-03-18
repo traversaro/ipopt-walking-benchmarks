@@ -122,7 +122,7 @@ jobs:
       run: |
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
-        git checkout debug\241
+        git checkout debug/241
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON ..
