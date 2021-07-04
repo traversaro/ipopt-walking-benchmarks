@@ -30,7 +30,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
-        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
+        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog
         
     - name: Coinbrew
       shell: bash -l {0}
@@ -59,7 +59,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd ../src/bipedal-locomotion-framework
-        git checkout debug/241
+        # git checkout debug/241
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
@@ -81,7 +81,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
-        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64
+        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog
         
     - name: Install blf via robotology-superbuild
       shell: bash -l {0}
@@ -93,7 +93,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd ../src/bipedal-locomotion-framework
-        git checkout debug/241
+        # git checkout debug/241
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
@@ -115,14 +115,14 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
-        mamba install -c robotology-staging cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2
+        mamba install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2
         
     - name: Install blf manually
       shell: bash -l {0}
       run: |
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
-        git checkout debug/241
+        # git checkout debug/241
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON ..
@@ -172,7 +172,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd ../src/bipedal-locomotion-framework
-        git checkout debug/241
+        # git checkout debug/241
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
@@ -206,7 +206,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON  -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
         cmake --build . --target bipedal-locomotion-framework
         cd ../src/bipedal-locomotion-framework
-        git checkout debug/241
+        # git checkout debug/241
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
