@@ -64,7 +64,7 @@ jobs:
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
-        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
 
   # This install mumps, ipopt via conda-forge and casadi, bipedal-locomotion-framework via robotology-superbuild
   build-conda-superbuild:
@@ -99,7 +99,7 @@ jobs:
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
-        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
         
   # This install mumps, ipopt, casadi via conda-forge, and bipedal-locomotion-framework manually
   build-conda-manual:
@@ -130,7 +130,7 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON ..
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
-        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
    
    
   # This install mumps, ipopt via coindbrew and casadi, bipedal-locomotion-framework via robotology-superbuild
@@ -180,7 +180,7 @@ jobs:
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
-        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
         
         
   # This install mumps, ipopt via apt and casadi, bipedal-locomotion-framework via robotology-superbuild
@@ -215,4 +215,4 @@ jobs:
         cd ../../build/src/bipedal-locomotion-framework
         cmake -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
-        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
