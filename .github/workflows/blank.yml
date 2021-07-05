@@ -104,7 +104,7 @@ jobs:
     - name: Install blf manually on top of  superbuild environment
       shell: bash -l {0}
       run: |
-        mamba install -c conda-forge -c robotology casadi idyntree yarp manif osqp-eigen
+        mamba install -c conda-forge -c robotology casadi idyntree yarp manif osqp-eigen matio-cpp qhull cppad lie-group-controllers
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
         # git checkout debug/241
