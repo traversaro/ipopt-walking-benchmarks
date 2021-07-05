@@ -101,6 +101,19 @@ jobs:
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
         
+    - name: Install blf manually on top of  superbuild environment
+      shell: bash -l {0}
+      run: |
+        mamba install casadi
+        git clone https://github.com/dic-iit/bipedal-locomotion-framework
+        cd bipedal-locomotion-framework
+        # git checkout debug/241
+        mkdir build
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
+        
   # This install mumps, ipopt, casadi via conda-forge, and bipedal-locomotion-framework manually
   build-conda-manual:
     # The type of runner that the job will run on
@@ -128,7 +141,7 @@ jobs:
         # git checkout debug/241
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON ..
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
    
