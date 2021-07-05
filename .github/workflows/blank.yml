@@ -30,6 +30,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog nlohmann_json valgrind
         
     - name: Coinbrew
@@ -81,6 +82,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 nlohmann_json valgrind
         
     - name: Install blf via robotology-superbuild
@@ -115,6 +117,7 @@ jobs:
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        sudo apt-get install -y libc6-dbg
         mamba install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
         
     - name: Install blf manually
@@ -138,6 +141,7 @@ jobs:
     steps:
     - name: Dependencies (without ipopt)
       run: |
+        sudo apt-get install -y libc6-dbg
         sudo apt-get install -y ninja-build build-essential pkg-config cmake cmake-curses-gui freeglut3-dev git libace-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libdc1394-22-dev libedit-dev libeigen3-dev libgsl0-dev libjpeg-dev liblua5.1-dev libode-dev libopencv-dev libsdl1.2-dev libtinyxml-dev libv4l-dev libxml2-dev lua5.1 portaudio19-dev qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtmultimedia qml-module-qtquick-controls qml-module-qtquick-dialogs qml-module-qtquick-window2 qml-module-qtquick2 qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev swig libspdlog-dev libmatio-dev libirrlicht-dev nlohmann-json3-dev valgrind
         git clone https://github.com/catchorg/Catch2
         cd Catch2 
@@ -187,6 +191,7 @@ jobs:
     steps:
     - name: Dependencies
       run: |
+        sudo apt-get install -y libc6-dbg
         sudo apt-get install -y ninja-build build-essential pkg-config cmake cmake-curses-gui coinor-libipopt-dev freeglut3-dev git libace-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libdc1394-22-dev libedit-dev libeigen3-dev libgsl0-dev libjpeg-dev liblua5.1-dev libode-dev libopencv-dev libsdl1.2-dev libtinyxml-dev libv4l-dev libxml2-dev lua5.1 portaudio19-dev qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtmultimedia qml-module-qtquick-controls qml-module-qtquick-dialogs qml-module-qtquick-window2 qml-module-qtquick2 qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev swig libspdlog-dev libmatio-dev libirrlicht-dev nlohmann-json3-dev valgrind
         git clone https://github.com/catchorg/Catch2
         cd Catch2 
