@@ -32,7 +32,8 @@ jobs:
       run: |
         sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog nlohmann_json valgrind
-        
+        conda install "libblas=*=*netlib"
+
     - name: Coinbrew
       shell: bash -l {0}
       run: |
@@ -84,7 +85,8 @@ jobs:
       run: |
         sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 nlohmann_json valgrind
-        
+        conda install "libblas=*=*netlib"
+
     - name: Install blf via robotology-superbuild
       shell: bash -l {0}
       run: |
@@ -142,8 +144,9 @@ jobs:
       shell: bash -l {0}
       run: |
         sudo apt-get install -y libc6-dbg
-        conda install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
-        
+        mamba install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
+        conda install "libblas=*=*netlib"
+
     - name: Install blf manually
       shell: bash -l {0}
       run: |
