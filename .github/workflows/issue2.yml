@@ -57,6 +57,7 @@ jobs:
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        export OPENBLAS_NUM_THREADS=1
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
    
