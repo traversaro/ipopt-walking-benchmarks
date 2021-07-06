@@ -100,6 +100,7 @@ jobs:
         cmake -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=ON .
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
+        ldd ./bin/TimeVaryingDCMPlannerUnitTests
         
     - name: Install blf manually on top of  superbuild environment
       shell: bash -l {0}
@@ -113,7 +114,17 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
-        
+        ldd ./bin/TimeVaryingDCMPlannerUnitTests
+
+    - name: Rerun TimeVaryingDCMPlannerUnitTests in superbuild
+      shell: bash -l {0}
+      run: |
+        cd ./robotology-superbuild/build/src/bipedal-locomotion-framework
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
+        ldd ./bin/TimeVaryingDCMPlannerUnitTests
+
   # This install mumps, ipopt, casadi via conda-forge, and bipedal-locomotion-framework manually
   build-conda-manual:
     # The type of runner that the job will run on
