@@ -42,7 +42,7 @@ jobs:
         # git checkout debug/241
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
    
