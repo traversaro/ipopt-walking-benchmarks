@@ -19,6 +19,14 @@ jobs:
   build-conda-manual:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        # See https://conda-forge.org/docs/maintainer/knowledge_base.html#switching-blas-implementation
+        blas_provider:
+          - mkl
+          - openblas
+          - blis
+          - netlib
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,7 +41,13 @@ jobs:
       run: |
         sudo apt-get install -y libc6-dbg
         conda install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
-        
+    
+    - name: Switch BLAS provider
+      shell: bash -l {0}
+      run: |
+        # See https://conda-forge.org/docs/maintainer/knowledge_base.html#switching-blas-implementation
+        conda install "libblas=*=*${{ matrix.blas_provider }}"
+     
     - name: Install blf manually
       shell: bash -l {0}
       run: |
