@@ -142,7 +142,7 @@ jobs:
       shell: bash -l {0}
       run: |
         sudo apt-get install -y libc6-dbg
-        mamba install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
+        conda install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
         
     - name: Install blf manually
       shell: bash -l {0}
