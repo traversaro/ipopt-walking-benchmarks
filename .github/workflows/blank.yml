@@ -120,7 +120,7 @@ jobs:
       shell: bash -l {0}
       run: |
         cd ./robotology-superbuild/build/src/bipedal-locomotion-framework
-        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
         cmake --build . --target TimeVaryingDCMPlannerUnitTests
         ctest -VV --repeat-until-fail 3 -R TimeVaryingDCMPlannerUnitTests
         ldd ./bin/TimeVaryingDCMPlannerUnitTests
