@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Issue2
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This install mumps, ipopt, casadi via conda-forge, and bipedal-locomotion-framework manually
+  build-conda-manual:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        mamba-version: "*"
+        channels: conda-forge,defaults
+        channel-priority: true
+
+    - name: Dependencies
+      shell: bash -l {0}
+      run: |
+        sudo apt-get install -y libc6-dbg
+        conda install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
+        
+    - name: Install blf manually
+      shell: bash -l {0}
+      run: |
+        git clone https://github.com/dic-iit/bipedal-locomotion-framework
+        cd bipedal-locomotion-framework
+        # git checkout debug/241
+        mkdir build
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DBUILD_TESTING=ON -DFRAMEWORK_RUN_Valgrind_tests:BOOL=OFF ..
+        cmake --build . --target TimeVaryingDCMPlannerUnitTests
+        ctest -VV --repeat-until-fail 10 -R TimeVaryingDCMPlannerUnitTests
+   
