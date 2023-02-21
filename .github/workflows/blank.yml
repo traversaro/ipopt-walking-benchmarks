@@ -23,16 +23,20 @@ jobs:
     steps:
     - uses: conda-incubator/setup-miniconda@v2
       with:
-        mamba-version: "*"
-        channels: conda-forge,defaults
-        channel-priority: true
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        channels: conda-forge
 
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
+        conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog nlohmann_json valgrind
         conda install "libblas=*=*netlib"
+        env
+        mamba list
 
     - name: Coinbrew
       shell: bash -l {0}
@@ -76,16 +80,20 @@ jobs:
     steps:
     - uses: conda-incubator/setup-miniconda@v2
       with:
-        mamba-version: "*"
-        channels: conda-forge,defaults
-        channel-priority: true
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        channels: conda-forge
 
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
+        conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
         mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 nlohmann_json valgrind
         conda install "libblas=*=*netlib"
+        env
+        mamba list
 
     - name: Install blf via robotology-superbuild
       shell: bash -l {0}
@@ -107,7 +115,7 @@ jobs:
     - name: Install blf manually on top of  superbuild environment
       shell: bash -l {0}
       run: |
-        mamba install -c conda-forge -c robotology casadi idyntree yarp manif osqp-eigen matio-cpp qhull cppad lie-group-controllers
+        mamba install casadi idyntree yarp manif osqp-eigen matio-cpp qhull cppad lie-group-controllers
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
         # git checkout debug/241
@@ -136,16 +144,20 @@ jobs:
     steps:
     - uses: conda-incubator/setup-miniconda@v2
       with:
-        mamba-version: "*"
-        channels: conda-forge,defaults
-        channel-priority: true
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        channels: conda-forge
 
     - name: Dependencies
       shell: bash -l {0}
       run: |
+        # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
+        conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
-        mamba install -c robotology cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
+        mamba install cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
         conda install "libblas=*=*netlib"
+        env
+        mamba list
 
     - name: Install blf manually
       shell: bash -l {0}
