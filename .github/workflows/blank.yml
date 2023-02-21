@@ -18,7 +18,7 @@ jobs:
   # This install mumps, ipopt via coindbrew and casadi, bipedal-locomotion-framework via robotology-superbuild
   build-conda-coinbrew-superbuild:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: conda-incubator/setup-miniconda@v2
@@ -70,7 +70,7 @@ jobs:
   # This install mumps, ipopt via conda-forge and casadi, bipedal-locomotion-framework via robotology-superbuild
   build-conda-superbuild:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -130,7 +130,7 @@ jobs:
   # This install mumps, ipopt, casadi via conda-forge, and bipedal-locomotion-framework manually
   build-conda-manual:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -163,7 +163,7 @@ jobs:
   # This install mumps, ipopt via coindbrew and casadi, bipedal-locomotion-framework via robotology-superbuild
   build-apt-coinbrew-superbuild:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     
     steps:
     - name: Dependencies (without ipopt)
@@ -213,7 +213,7 @@ jobs:
   # This install mumps, ipopt via apt and casadi, bipedal-locomotion-framework via robotology-superbuild
   build-apt-superbuild:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     
     steps:
     - name: Dependencies
