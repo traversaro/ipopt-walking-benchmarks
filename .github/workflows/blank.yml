@@ -172,7 +172,7 @@ jobs:
         sudo apt-get install -y ninja-build build-essential pkg-config cmake cmake-curses-gui freeglut3-dev git libace-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libdc1394-dev libedit-dev libeigen3-dev libgsl0-dev libjpeg-dev liblua5.1-dev libode-dev libopencv-dev libsdl1.2-dev libtinyxml-dev libv4l-dev libxml2-dev lua5.1 portaudio19-dev qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtmultimedia qml-module-qtquick-controls qml-module-qtquick-dialogs qml-module-qtquick-window2 qml-module-qtquick2 qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev swig libspdlog-dev libmatio-dev libirrlicht-dev nlohmann-json3-dev valgrind
         git clone https://github.com/catchorg/Catch2
         cd Catch2 
-        git checkout v2.13.4
+        git checkout v2.13.10
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -222,7 +222,7 @@ jobs:
         sudo apt-get install -y ninja-build build-essential pkg-config cmake cmake-curses-gui coinor-libipopt-dev freeglut3-dev git libace-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libdc1394-dev libedit-dev libeigen3-dev libgsl0-dev libjpeg-dev liblua5.1-dev libode-dev libopencv-dev libsdl1.2-dev libtinyxml-dev libv4l-dev libxml2-dev lua5.1 portaudio19-dev qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtmultimedia qml-module-qtquick-controls qml-module-qtquick-dialogs qml-module-qtquick-window2 qml-module-qtquick2 qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev swig libspdlog-dev libmatio-dev libirrlicht-dev nlohmann-json3-dev valgrind
         git clone https://github.com/catchorg/Catch2
         cd Catch2 
-        git checkout v2.13.4
+        git checkout v2.13.10
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release ..
