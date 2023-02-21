@@ -33,7 +33,7 @@ jobs:
         # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
         conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
-        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog nlohmann_json valgrind
+        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 spdlog nlohmann_json valgrind qhull
         conda install "libblas=*=*netlib"
         env
         mamba list
@@ -90,7 +90,7 @@ jobs:
         # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
         conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
-        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 nlohmann_json valgrind
+        mamba install cmake compilers make catch2 ninja pkg-config ace asio boost eigen irrlicht gazebo glew glfw gsl ipopt libjpeg-turbo libmatio libode libxml2 opencv pkg-config portaudio qt sdl sdl2 sqlite tinyxml spdlog expat-cos6-x86_64 freeglut libdc1394 libselinux-cos6-x86_64 libxau-cos6-x86_64 libxcb-cos6-x86_64 libxdamage-cos6-x86_64 libxext-cos6-x86_64 libxfixes-cos6-x86_64 libxxf86vm-cos6-x86_64 mesalib mesa-libgl-cos6-x86_64 nlohmann_json valgrind qhull
         conda install "libblas=*=*netlib"
         env
         mamba list
