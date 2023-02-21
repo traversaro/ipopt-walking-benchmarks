@@ -210,6 +210,7 @@ jobs:
         export PATH=${PATH}:${IPOPT_DIR}/lib
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
+        sudo bash ./scripts/install_apt_dependencies.sh
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
@@ -245,6 +246,7 @@ jobs:
       run: |
         git clone https://github.com/robotology/robotology-superbuild
         cd robotology-superbuild
+        sudo bash ./scripts/install_apt_dependencies.sh
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DNON_INTERACTIVE_BUILD:BOOL=ON  -DROBOTOLOGY_PROJECT_TAGS:STRING=Unstable -DROBOTOLOGY_USES_GAZEBO:BOOL=OFF -DROBOTOLOGY_ENABLE_DYNAMICS:BOOL=ON -DROBOTOLOGY_ENABLE_DYNAMICS_FULL_DEPS:BOOL=ON ..
