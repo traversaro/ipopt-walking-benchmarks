@@ -115,7 +115,7 @@ jobs:
     - name: Install blf manually on top of  superbuild environment
       shell: bash -l {0}
       run: |
-        mamba install casadi idyntree yarp manif osqp-eigen matio-cpp qhull cppad lie-group-controllers
+        mamba install casadi idyntree yarp manif osqp-eigen libmatio-cpp qhull cppad liblie-group-controllers
         git clone https://github.com/dic-iit/bipedal-locomotion-framework
         cd bipedal-locomotion-framework
         # git checkout debug/241
@@ -154,7 +154,7 @@ jobs:
         # Workaround for https://github.com/conda-incubator/setup-miniconda/issues/186
         conda config --remove channels defaults
         sudo apt-get install -y libc6-dbg
-        mamba install cmake compilers make ninja pkg-config idyntree yarp matio-cpp lie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
+        mamba install cmake compilers make ninja pkg-config idyntree yarp libmatio-cpp liblie-group-controllers eigen qhull casadi cppad manif spdlog catch2 nlohmann_json valgrind
         conda install "libblas=*=*netlib"
         env
         mamba list
